@@ -1,2 +1,4 @@
 # hi
-A little cli companion
+A little cli companion based on a Task runner.
+
+WIP.
