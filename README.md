@@ -11,12 +11,18 @@ hi is an alias to the the [Just task runner](https://just.systems). It uses git 
 
 To get it going, you will need to install git, install Just and configure the "hi" alias for your profile. You will need a simple tool to edit your profile and config files.  `VS Code`  or `NotePad++` will do nicely on Windows.
 
-**1. Install git and Just**
+**1. Install prerequisites (git and Just)**
 ```powershell
 > winget install Git.Git Casey.Just Microsoft.VisualStudioCode
 ```
 
-**2. Configure the alias. **
+**2. Clone the hi repo inot ~/bin**
+```powershell
+cd ~/bin
+clone git@github.com:rudylattae/hi.git
+```
+
+**3. Configure the alias. **
 Add the following function to your PowerShell profile. The function acts as a thin wrapper around just and loads the `main.just` always.
 
 ```powershell
