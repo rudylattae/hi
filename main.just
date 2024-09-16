@@ -1,3 +1,5 @@
+set allow-duplicate-recipes := true
+
 # Import the user's justfile if defined.
 import? '~/.user.justfile'
 
@@ -22,3 +24,10 @@ mod? machine '~/dotfiles/machine.just'
 # Install my tools (on linux)
 [unix]
 @install-tools:
+  echo "Installing on LINUX!!!"
+
+
+# Install my tools (on windows)
+[windows]
+@install-tools:
+  echo "Installing on WInBLOWS!"
