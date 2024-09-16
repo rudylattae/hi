@@ -39,6 +39,10 @@ function hi() {
 ### On Linux
 > TODO
 
+```sh
+alias hi='just --justfile  ~/bin/hi/main.just $args'
+```
+
 
 ## Get started
 Once `hi` is installed and boostrapped on your machine, run it to see the available recipes
