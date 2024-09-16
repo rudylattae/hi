@@ -18,8 +18,8 @@ To get it going, you will need to install git, install Just and configure the "h
 
 **2. Clone the hi repo inot ~/bin**
 ```powershell
-cd ~/bin
-clone git@github.com:rudylattae/hi.git
+> cd ~/bin
+> clone git@github.com:rudylattae/hi.git
 ```
 
 **3. Configure the alias. **
