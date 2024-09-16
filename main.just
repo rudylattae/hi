@@ -6,6 +6,7 @@ mod self
 
 # Manage dofiles for the current user
 mod? dotfiles '~/dotfiles/dotfiles.just'
+mod? machine '~/dotfiles/machine.just'
 
 
 # List all available recipes

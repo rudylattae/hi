@@ -22,6 +22,7 @@ alias up := update
 @publish version notes:
   echo 'Publishing version: {{version}}...'
   echo '  with notes: {{notes}}'
+  # mark a tag and create a release on github?
 
 # Output the directory where hi's justfiles are
 @path:
