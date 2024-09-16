@@ -13,12 +13,3 @@ mod? machine '~/dotfiles/machine.just'
 @_default:
   echo 'Here is a list of stuff I can assist with'
   just --list --justfile {{source_file()}}
-
-# Show arch and os name
-@os-info:
-  echo 'Arch: {{arch()}}'
-  echo 'OS: {{os()}}'
-
-# Install my tools (on linux)
-[unix]
-@install-tools:
