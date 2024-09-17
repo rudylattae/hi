@@ -37,7 +37,16 @@ function hi() {
 ```
 
 ### On Linux
-> TODO
+**1. Install prerequisites (git and Just)**
+
+**2. Clone the hi repo inot ~/bin**
+```powershell
+> cd ~/bin
+> clone git@github.com:rudylattae/hi.git
+```
+
+**3. Configure the alias. **
+Add the following alias to your .bash_rc or .bash_profile. The alias acts as a thin wrapper around just and loads the `main.just` always.
 
 ```sh
 alias hi='just --justfile  ~/bin/hi/main.just $args'

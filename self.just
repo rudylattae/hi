@@ -1,29 +1,43 @@
-alias up := update
-
 @_default:
   just --justfile {{source_file()}} --list
 
-# Configure hi and get going
-@bootstrap:
-  
+# Output the directory where the hi justfiles are
+@path:
+  echo {{justfile_directory()}}
 
-# Update the hi repo to the lastest version
+# Configure and get going
+@bootstrap:
+  echo '🚧 Not yet implemented yet' && exit 1
+
+# Update the local hi repo to the lastest version
 @update:
   git pull --rebase
 
-# Commit and push any changes
-@push message:
-  git status
-  git add .
-  git commit -m "{{message}}"
+alias up := update
+
+# Save (commit) any changes to the local hi repo
+@commit message:
+  git status && git add . && git commit -m "{{message}}"
+
+# Push changes to the remote hi repo
+@push:
   git push
 
-# Publish a new version
-@publish version notes:
-  echo 'Publishing version: {{version}}...'
-  echo '  with notes: {{notes}}'
-  # mark a tag and create a release on github?
+# See the status of the local dotfiles repo
+@status:
+  git status
 
-# Output the directory where hi's justfiles are
-@path:
-  echo {{justfile_directory()}}
+# See the diff of the local dotfiles repo
+@diff:
+  git diff
+
+# See the history of the local dotfiles repo
+@log:
+  git log --oneline -n 10
+
+# Publish a new version of hi
+@publish version notes:
+  echo '🚧 Not yet implemented.'
+  echo 'Publishing version: {{version}}...\n  with notes: {{notes}}'
+  echo 'TODO: mark a tag and create a release on github?'
+  exit 1
