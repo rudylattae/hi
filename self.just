@@ -1,13 +1,23 @@
 @_default:
   just --justfile {{source_file()}} --list
 
-# Output the directory where the hi justfiles are
-@path:
-  echo {{justfile_directory()}}
-
 # Configure and get going
 @bootstrap:
   echo '🚧 Not yet implemented yet' && exit 1
+
+# Output the directory where the hi configurations live
+@path:
+  echo {{justfile_directory()}}
+
+# Open dotfiles configuration directory in vscode
+[windows]
+@edit:
+  code {{source_directory()}}
+
+# Open dotfiles configuration directory in vscode
+[unix]
+@edit:
+  vim {{source_directory()}}
 
 # Update the local hi repo to the lastest version
 @update:
