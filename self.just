@@ -23,6 +23,10 @@ alias up := update
 @push:
   git push
 
+# Commit any changes and push to remote dotfiles repo
+@cmpush message:
+  git status && git add . && git commit -m "{{message}}" && git push
+
 # See the status of the local dotfiles repo
 @status:
   git status
@@ -33,7 +37,7 @@ alias up := update
 
 # See the history of the local dotfiles repo
 @log:
-  git log --oneline -n 10
+  git log --oneline -n 10 --pretty=format:'%h %ad | %s%d [%an]' --date=short
 
 # Publish a new version of hi
 @publish version notes:
