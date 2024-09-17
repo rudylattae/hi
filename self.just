@@ -37,7 +37,7 @@ alias up := update
 
 # See the history of the local dotfiles repo
 @log:
-  git log --oneline -n 10 --pretty=format:'%h %ad | %s%d [%an]' --date=short
+  git log --graph --pretty=format:'%Cred%h%Creset %ad -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
 
 # Publish a new version of hi
 @publish version notes:
