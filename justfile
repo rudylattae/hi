@@ -9,5 +9,4 @@ mod self
 
 # List all available recipes
 @_default:
-  echo 'Here is a list of stuff I can assist with'
-  just --list --justfile {{source_file()}}
+  just --justfile {{source_file()}} --list

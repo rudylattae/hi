@@ -5,7 +5,7 @@
 > 
 > A handy little cli companion.
 
-## Install and bootstrap
+## Install
 ### On Windows
 hi is an alias to the the [Just task runner](https://just.systems). It uses git to publish and update changes to recipe modules. 
 
@@ -32,28 +32,31 @@ Add the following function to your PowerShell profile. The function acts as a th
 
 ```powershell
 function hi() {
-    just --shell "pwsh.exe" --shell-arg -c --justfile ${HOME}/bin/hi/main.just $args
+    just --shell "pwsh.exe" --shell-arg -c --justfile ${HOME}/bin/hi/justfile $args
 }
 ```
 
 ### On Linux
 **1. Install prerequisites (git and Just)**
 
-**2. Clone the hi repo inot ~/bin**
+**2. Clone the hi repo into ~/bin**
 ```powershell
 > cd ~/bin
 > clone git@github.com:rudylattae/hi.git
 ```
 
-**3. Configure the alias. **
+**3. Configure the alias.**
 Add the following alias to your .bash_rc or .bash_profile. The alias acts as a thin wrapper around just and loads the `main.just` always.
 
 ```sh
-alias hi='just --justfile  ~/bin/hi/main.just $args'
+alias hi='just --justfile  ~/bin/hi/justfile $args'
 ```
 
+## Configure
+To configure hi, you would need to have 
 
-## Get started
+
+## Usage
 Once `hi` is installed and boostrapped on your machine, run it to see the available recipes
 ```powershell
 > hi
