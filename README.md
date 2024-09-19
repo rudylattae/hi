@@ -42,7 +42,7 @@ function hi() {
 **2. Clone the hi repo into ~/bin**
 ```powershell
 > cd ~/bin
-> clone git@github.com:rudylattae/hi.git
+> git clone git@github.com:rudylattae/hi.git
 ```
 
 **3. Configure the alias.**
