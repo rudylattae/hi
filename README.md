@@ -32,7 +32,7 @@ Add the following function to your PowerShell profile. The function acts as a th
 
 ```powershell
 function hi() {
-    just --shell "pwsh.exe" --shell-arg -c --justfile ${HOME}/bin/hi/justfile $args
+    just --shell "pwsh.exe" --shell-arg -c --justfile ${HOME}/hi/github.com/rudylattae/hi/justfile $args
 }
 ```
 
@@ -53,7 +53,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -
 Add the following alias to your .bash_rc or .bash_profile. The alias acts as a thin wrapper around just and loads the `main.just` always.
 
 ```bash
-alias hi='just --justfile  ~/bin/hi/justfile $args'
+alias hi='just --justfile  ~/hi/github.com/rudylattae/hi/justfile $args'
 ```
 
 ## Configure
@@ -64,7 +64,6 @@ To configure hi, you would need to have
 Once `hi` is installed and boostrapped on your machine, run it to see the available recipes
 ```powershell
 > hi
-Here is a list of stuff I can assist with
 Available recipes:
     self ...      # Manage "hi" itself
 ```
