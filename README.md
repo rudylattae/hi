@@ -50,14 +50,20 @@ function hi() {
 ### On Linux
 **1. Install prerequisites (git and Just)**
 ```bash
-curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to ~/bin
+# install just with package manager, see: https://just.systems/man/en/packages.html
+# e.g. on Debian (Ubuntu, etc.)
+$ apt install just
+
+# OR install just with install script
+$ curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to ~/bin
 ```
 
 
 **2. Clone the hi repo into ~/bin**
 ```bash
-> cd ~/bin
-> git clone git@github.com:rudylattae/hi.git
+$ mkdir -p ~/hi/github.com/rudylattae
+$ cd ~/hi/github.com/rudylattae
+$ git clone git@github.com:rudylattae/hi.git
 ```
 
 **3. Configure the alias.**
