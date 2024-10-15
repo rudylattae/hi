@@ -7,9 +7,16 @@
 
 ## Install
 ### On Windows
-hi is an alias to the the [Just task runner](https://just.systems). It uses git to publish and update changes to recipe modules. 
+hi is a unified command line task runner. Fow now, it is an alias to the the [Just task runner](https://just.systems). It uses git to publish and update changes to recipe modules. 
 
 To get it going, you will need to install git, install Just and configure the "hi" alias for your profile. You will need a simple tool to edit your profile and config files.  `VS Code`  or `NotePad++` will do nicely on Windows.
+
+**Experimental**
+Use the install script to boostrap the nexessasy dependencies onto your system and get started.
+```powershell
+> iwr https://raw.githubusercontent.com/rudylattae/hi/refs/heads/main/bootstrap/install.ps1 -useb | iex
+```
+
 
 **1. Install prerequisites (git and Just)**
 ```powershell
