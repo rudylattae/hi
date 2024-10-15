@@ -45,7 +45,7 @@ $hi_function_def = @"
 # BEGIN HI ALIAS FOR JUST
 # This was added by the hi install script. Do not edit.
 function hi() {
-    just --shell "pwsh.exe" --shell-arg -c --justfile `${HOME}/hi/github.com/rudylattae/hi/justfile $args
+    just --shell "pwsh.exe" --shell-arg -c --justfile `${HOME}/hi/github.com/rudylattae/hi/justfile `$args
 }
 # END HI ALIAS FOR JUST
 "@
