@@ -28,12 +28,13 @@ function Install-If-Not-Exists() {
 function Add-Content-If-Not-Exists() {
     param (
         [string]$Path,
+        [string]$Snippet,
         [string]$Value
     )
 
-    if (-not (Get-Content $Path | Select-String -Pattern [regex]::Escape($Value))) {
+    if (-not (Get-Content $Path | Select-String -Pattern [regex]::Escape($Snippet))) {
         # If the string is not found, append it to the file
-        Add-Content -Path $filePath -Value $stringToWrite
+        Add-Content -Path $Path -Value $Value
         Write-Output "String added to the file."
     } else {
         Write-Output "String already exists in the file."
@@ -72,7 +73,7 @@ if (Test-Path $hi_repo_dir) {
 
 Write-Output "Registering hi alias for just in profile..."
 if (Test-Path $PROFILE) {
-    Add-Content-If-Not-Exists $PROFILE $hi_function_def
+    Add-Content-If-Not-Exists -Path $PROFILE -Snippet "# BEGIN HI ALIAS FOR JUST" -Value $hi_function_def
     Write-Host "Registered alias in $PROFILE"
 } else {
     Write-Host "No profile found at $PROFILE. You must have one before the alias can be added"
