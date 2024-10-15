@@ -50,12 +50,12 @@ function hi() {
 ### On Linux
 **1. Install prerequisites (git and Just)**
 ```bash
-# install just with package manager, see: https://just.systems/man/en/packages.html
-# e.g. on Debian (Ubuntu, etc.)
-$ apt install just
-
-# OR install just with install script
+# Install just with install script (preferred)
 $ curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to ~/bin
+
+# install just with package manager, see: https://just.systems/man/en/packages.html
+# e.g. on Debian (Ubuntu, etc.) -- versions run behind, tread carefully.
+$ apt install just
 ```
 
 
