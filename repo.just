@@ -1,4 +1,4 @@
-hi_clone_base_dir := absolute_path(env('HI_CLONE_BASE_DIR'))
+hi_clone_base_dir := absolute_path(env('HI_CLONE_BASE_DIR', append('/hi', home_dir())))
 hi_github_base_dir := absolute_path(append('/github.com', hi_clone_base_dir))
 
 tldr_info := '# Use cases
