@@ -9,16 +9,20 @@
 ### On Windows
 hi is a unified command line task runner. Fow now, it is an alias to the the [Just task runner](https://just.systems). It uses git to publish and update changes to recipe modules. 
 
-To get it going, you will need to install git, install Just and configure the "hi" alias for your profile. You will need a simple tool to edit your profile and config files.  `VS Code`  or `NotePad++` will do nicely on Windows.
+**IMPORTANT**: The following instructions assume you have **Powershell** (pwsh) and **WinGet** intalled.
 
-**Experimental**
-Use the install script to boostrap the nexessasy dependencies onto your system and get started.
+#### A) Experimental (Install script)
+Use the install script to boostrap the nexessasy dependencies onto your system and get started. The script will:
+- install `git` and `just`, if they are not found
+- clone hi to `$HOME/hi/github.com/rudylattae/hi`, if that directory does not already exist
+- add a function definition for `hi` to your user profile, `$PROFILE`
 ```powershell
-> iwr https://raw.githubusercontent.com/rudylattae/hi/refs/heads/main/bootstrap/install.ps1 -useb | iex
+> iwr https://raw.githubusercontent.com/rudylattae/hi/refs/heads/main/install.ps1 -useb | iex
 ```
 
-
+#### B) Manual steps
 **1. Install prerequisites (git and Just)**
+You will need to install git, install Just and configure the "hi" alias for your profile. You will need a simple tool to edit your profile and config files.  `VS Code`  or `NotePad++` will do nicely on Windows.
 ```powershell
 > winget install Git.Git Casey.Just Microsoft.VisualStudioCode
 ```
