@@ -5,9 +5,10 @@
 > 
 > A handy little cli companion.
 
+hi is a unified command line task runner. Fow now, it is an alias to the the [Just task runner](https://just.systems). It uses git to publish and update changes to recipe modules. 
+
 ## Install
 ### On Windows
-hi is a unified command line task runner. Fow now, it is an alias to the the [Just task runner](https://just.systems). It uses git to publish and update changes to recipe modules. 
 
 **IMPORTANT**: The following instructions assume you have **Powershell** (pwsh) and **WinGet** intalled.
 
