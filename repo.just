@@ -84,8 +84,8 @@ alias st := status
 
 
 # See the history of the local <repository>
-@log repository:
-  cd "{{hi_github_base_dir}}/{{repository}}" && git log --graph --pretty=format:'%Cred%h%Creset %ad -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
+@log repository *args:
+  cd "{{hi_github_base_dir}}/{{repository}}" && git log --graph --pretty=format:'%Cred%h%Creset %ad -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short {{args}}
 
 
 # See the diff of the local <repository>
