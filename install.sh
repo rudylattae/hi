@@ -62,7 +62,7 @@ fi
 if [ -f ~/.bash_aliases ]; then
     if ! grep -q "^$hi_just_alias\$" ~/.bash_aliases; then
         echo "$hi_just_alias" >> ~/.bash_aliases
-        log "Registered alias in "
+        log "Registered alias in ~/.bash_aliases"
     fi
 else
     log "Unable to find ~/.bash_aliases file."
