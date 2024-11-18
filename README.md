@@ -13,7 +13,7 @@ hi is a unified command line task runner. Fow now, it is an alias to the the [Ju
 **IMPORTANT**: The following instructions assume you have **Powershell** (pwsh) and **WinGet** intalled.
 
 #### A) Experimental (Install script)
-Use the install script to boostrap the nexessasy dependencies onto your system and get started. The script will:
+Use the install script to boostrap the necessasy dependencies onto your system and get started. The script will:
 - install `git` and `just`, if they are not found
 - clone hi to `$HOME/hi/github.com/rudylattae/hi`, if that directory does not already exist
 - add a function definition for `hi` to your user profile, `$PROFILE`
@@ -52,22 +52,34 @@ function hi() {
 **1. Install prerequisites (git and Just)**
 ```bash
 # Install just with install script (preferred)
-$ curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to ~/bin
+$ curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/rudylattae/hi/refs/heads/main/install.sh | bash -s
 
 # install just with package manager, see: https://just.systems/man/en/packages.html
 # e.g. on Debian (Ubuntu, etc.) -- versions run behind, tread carefully.
 $ apt install just
 ```
 
+#### A) Experimental (Install script)
 
-**2. Clone the hi repo into ~/bin**
+Use the install script to get hi onto your system and get started. The script will:
+- check for a few dependencies and alert you if they are not found (`git` and `just`)
+- clone hi to `$HOME/hi/github.com/rudylattae/hi`, if that directory does not already exist
+- add an alias for `hi` to your `~/.bash_aliases`
+    - if `~/.bash_aliases` is not found, it will output the alias line for you to manually add it somewhere
+```bash
+$ curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s
+```
+
+#### B) Manual steps
+
+**1. Clone the hi repo into ~/bin**
 ```bash
 $ mkdir -p ~/hi/github.com/rudylattae
 $ cd ~/hi/github.com/rudylattae
 $ git clone git@github.com:rudylattae/hi.git
 ```
 
-**3. Configure the alias.**
+**2. Configure the alias.**
 Add the following alias to your .bash_rc or .bash_profile. The alias acts as a thin wrapper around just and loads the `main.just` always.
 
 ```bash
