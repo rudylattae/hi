@@ -116,7 +116,6 @@ alias cmp := commitpush
     }
 
 [unix]
-[quiet]
 @list:
   #!/usr/bin/env bash
   repo_dir="{{hi_github_base_dir}}"
