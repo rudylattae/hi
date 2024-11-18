@@ -34,12 +34,16 @@ alias up := update
   git push
 
 # Commit any changes and push to remote dotfiles repo
-@cmpush message:
+@commitpush message:
   git status && git add . && git commit -m "{{message}}" && git push
+
+alias cmp := commitpush
 
 # See the status of the local dotfiles repo
 @status:
   git status
+
+alias st := status
 
 # See the diff of the local dotfiles repo
 @diff:

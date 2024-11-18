@@ -52,7 +52,7 @@ function hi() {
 **1. Install prerequisites (git and Just)**
 ```bash
 # Install just with install script (preferred)
-$ curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/rudylattae/hi/refs/heads/main/install.sh | bash -s
+$ curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s
 
 # install just with package manager, see: https://just.systems/man/en/packages.html
 # e.g. on Debian (Ubuntu, etc.) -- versions run behind, tread carefully.
@@ -67,7 +67,7 @@ Use the install script to get hi onto your system and get started. The script wi
 - add an alias for `hi` to your `~/.bash_aliases`
     - if `~/.bash_aliases` is not found, it will output the alias line for you to manually add it somewhere
 ```bash
-$ curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s
+$ curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/rudylattae/hi/refs/heads/main/install.sh | bash -s
 ```
 
 #### B) Manual steps

@@ -116,9 +116,10 @@ alias cmp := commitpush
     }
 
 [unix]
+[quiet]
 @list:
   #!/usr/bin/env bash
   repo_dir="{{hi_github_base_dir}}"
-  find "$repo_dir" -mindepth 1 -maxdepth 1 -type d -printf "%h/%f\n"
+  find "$repo_dir" -mindepth 2 -maxdepth 2 -type d | awk -F/ '{if (NF>1) print $(NF-1)"/"$NF}'
   
 alias ls := list
