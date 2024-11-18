@@ -6,7 +6,7 @@
   echo '🚧 Not yet implemented yet' && exit 1
 
 # Output the directory where the hi configurations live
-@path:
+@dir:
   echo {{justfile_directory()}}
 
 # Open dotfiles configuration directory in vscode
