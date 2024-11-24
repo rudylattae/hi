@@ -2,10 +2,20 @@ hi_clone_base_dir := absolute_path(env('HI_CLONE_BASE_DIR', append('/hi', home_d
 hi_github_base_dir := absolute_path(append('/github.com', hi_clone_base_dir))
 user_justfile := '~/.user.justfile'
 
+tldr_info := '# Use cases
+Clone a mod from <repo_name> on github. Add the mod to your ~/.user.justfile 
+if it exists.
+
+> hi mod add mod_name repo_name "mod_description"
+'
+
 # List all available recipes
 @_default:
   just --justfile {{source_file()}} --list
 
+# TL;DR; See usage examples and quick tips
+@tldr:
+  echo "{{tldr_info}}"
 
 # Add a module pointing to the justfile in the repo
 [unix]
