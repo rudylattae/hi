@@ -44,7 +44,7 @@ Examples:
 
 # Clone the <repo_name> into local directory (WINDOWS)
 [windows]
-@clone repo_name:
+clone repo_name:
   #!pwsh.exe
   $repo_url = "git@github.com:{{repo_name}}.git"
   $repo_dir = "{{hi_github_base_dir}}/{{repo_name}}"
@@ -57,7 +57,7 @@ Examples:
 
 # Clone the <repo_name> into local directory (UNIX)
 [unix]
-@clone repo_name:
+clone repo_name:
   #!/usr/bin/env bash
   repo_url="git@github.com:{{repo_name}}.git"
   repo_dir="{{hi_github_base_dir}}/{{repo_name}}"
@@ -116,7 +116,7 @@ alias cmp := commitpush
 
 # Check if a repo exists locally
 [windows]
-@exists repo_name:
+exists repo_name:
   #!pwsh.exe
   $repo_dir = "{{hi_github_base_dir}}/{{repo_name}}"
   if (Test-Path -Path $repo_dir) {
@@ -128,7 +128,7 @@ alias cmp := commitpush
 
 # Output the on disk repositories 
 [windows]
-@list:
+list:
   #!pwsh.exe
   $repo_dir = "{{hi_github_base_dir}}"
   Get-ChildItem -Path $repo_dir -Directory -Recurse -Depth 1 | 
@@ -137,7 +137,7 @@ alias cmp := commitpush
     }
 
 [unix]
-@list:
+list:
   #!/usr/bin/env bash
   repo_dir="{{hi_github_base_dir}}"
   find "$repo_dir" -mindepth 2 -maxdepth 2 -type d | awk -F/ '{if (NF>1) print $(NF-1)"/"$NF}'

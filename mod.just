@@ -19,7 +19,7 @@ if it exists.
 
 # Add a module pointing to the justfile in the repo
 [unix]
-@add name repo_name description:
+add name repo_name description:
   #!/usr/bin/env sh
   repo_dir={{hi_github_base_dir}}/{{repo_name}}
   line1="# {{description}}"
