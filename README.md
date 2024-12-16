@@ -21,6 +21,13 @@ Use the install script to boostrap the necessasy dependencies onto your system a
 > iwr https://raw.githubusercontent.com/rudylattae/hi/refs/heads/main/install.ps1 -useb | iex
 ```
 
+Preflight checks
+If you wish, you may run the installer with a -PreFlight flag. This will only do some checks to see if you have the dependencies `hi` needs to run.
+
+```powershell
+& ([scriptblock]::Create((iwr https://raw.githubusercontent.com/rudylattae/hi/refs/heads/main/install.ps1 -useb))) -PreFlight
+```
+
 #### B) Manual steps
 **1. Install prerequisites (git and Just)**
 You will need to install git, install Just and configure the "hi" alias for your profile. You will need a simple tool to edit your profile and config files.  `VS Code`  or `NotePad++` will do nicely on Windows.
