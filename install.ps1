@@ -35,9 +35,9 @@ function Test-Command-Exists() {
     )
 
     if (Get-Command -ErrorAction SilentlyContinue $Command) {
-        Write-Output "✅ $Command"
+        Write-Output "`u{2705} $Command"
     } else {
-        Write-Output "❌ $Command"
+        Write-Output "`u{274C} $Command"
     }
 }
 
