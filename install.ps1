@@ -1,5 +1,5 @@
 param (
-    [bool]$PreFlight = $false,      # Run checks to show if your system supports hi (will not install)
+    [switch]$PreFlight      # Run checks to show if your system supports hi (will not install)
 )
 
 function Get-EnvVar {
@@ -29,6 +29,18 @@ function Install-If-Not-Exists() {
     }
 }
 
+function Test-Command-Exists() {
+    param (
+        [string]$Command        # Command to check for
+    )
+
+    if (Get-Command -ErrorAction SilentlyContinue $Command) {
+        Write-Output "✅ $Command"
+    } else {
+        Write-Output "❌ $Command"
+    }
+}
+
 function Add-Content-If-Not-Exists() {
     param (
         [string]$Path,
@@ -46,11 +58,15 @@ function Add-Content-If-Not-Exists() {
 }
 
 if ($PreFlight) {
-    Write-Output "In PREFLIGHT CHECKS Mode. No installation of changes will be made."
+    Write-Output "In PREFLIGHT CHECKS Mode. No installation or changes will be made."
+    Test-Command-Exists "pwsh" "Powershell is the preferred shell for hi on windows"
+    Test-Command-Exists "git" "Git for distributing the just recipes hi uses"
+    Test-Command-Exists "just" "Just does all the heavy lifting to execute recipes"
     exit
 }
 
 $hi_function_def = @"
+
 # BEGIN HI ALIAS FOR JUST
 # This was added by the hi install script. Do not edit.
 function hi() {
