@@ -1,3 +1,7 @@
+param (
+    [bool]$PreFlight = $false,      # Run checks to show if your system supports hi (will not install)
+)
+
 function Get-EnvVar {
     param (
         [string]$VarName,          # Name of the environment variable
@@ -39,6 +43,11 @@ function Add-Content-If-Not-Exists() {
     } else {
         Write-Output "String already exists in the file."
     }
+}
+
+if ($PreFlight) {
+    Write-Output "In PREFLIGHT CHECKS Mode. No installation of changes will be made."
+    exit
 }
 
 $hi_function_def = @"
