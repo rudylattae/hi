@@ -18,5 +18,5 @@ mod mod
 
 # List all available recipes
 @_default:
-  just --justfile {{source_file()}} --list
+  just --justfile {{source_file()}} --list --unsorted
 
