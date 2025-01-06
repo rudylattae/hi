@@ -1,14 +1,24 @@
 default_justfile_content := "# DEFAULT JUSTFILE FOR CUSTOMIZATIONS
   
-# Say hello
-@hello who='World':
+# Greet anyone!
+@greet who='World':
   echo 'Hello {{who}}!'
+
+# Edit user default hi.justfile
+[windows]
+edit-justfile:
+  code ~/.config/hi/hi.justfile
+
+# Edit user default hi.justfile
+[unix]
+edit-justfile:
+  vim ~/.config/hi/hi.justfile
 "
 
 @_default:
   just --justfile {{source_file()}} --list --unsorted
 
-# Create user's default hi.justfile
+# Create user default hi.justfile
 [windows]
 init:
   #!pwsh.exe
@@ -20,7 +30,7 @@ init:
     echo "Created $justfile"
   }
 
-# Create user's default hi.justfile
+# Create user default hi.justfile
 [unix]
 init:
   #!/usr/bin/env sh
@@ -33,7 +43,7 @@ init:
     echo "Default hi.justfile already exists: $justfile"
   fi
 
-# Output the directory where the hi configurations live
+# Output the directory where the hi source live
 @dir:
   echo {{justfile_directory()}}
 
