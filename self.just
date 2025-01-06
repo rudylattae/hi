@@ -1,10 +1,24 @@
+default_justfile_content := "# DEFAULT JUSTFILE FOR CUSTOMIZATIONS
+  
+# Say hello
+@hello who='World':
+  echo 'Hello {{who}}!'
+"
+
 @_default:
   just --justfile {{source_file()}} --list --unsorted
 
 # Create user's default hi.justfile
 [windows]
-@init:
-  code ~/.config/hi/hi.justfile
+init:
+  #!pwsh.exe
+  $justfile="~/.config/hi/hi.justfile"
+  if (Test-Path -Path $justfile) {
+    echo "Default hi.justfile already exists: $justfile"
+  } else {
+    "{{default_justfile_content}}" | Out-File $justfile 
+    echo "Created $justfile"
+  }
 
 # Create user's default hi.justfile
 [unix]
