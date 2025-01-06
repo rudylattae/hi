@@ -26,6 +26,11 @@ init:
   if (Test-Path -Path $justfile) {
     echo "Default hi.justfile already exists: $justfile"
   } else {
+    $justfileDir = Split-Path -Path $justfile
+    if (-Not (Test-Path -Path $justfileDir)) {
+      New-Item -Path $justfileDir -ItemType Directory -Force
+    }
+    New-Item -Path $justfile -ItemType File -Force
     "{{default_justfile_content}}" | Out-File $justfile 
     echo "Created $justfile"
   }
