@@ -6,12 +6,12 @@ default_justfile_content := "# DEFAULT JUSTFILE FOR CUSTOMIZATIONS
 
 # Edit user default hi.justfile
 [windows]
-edit-justfile:
-  code ~/.config/hi/hi.justfile
+@edit-justfile:
+  code {{home_dir()}}\\.config\\hi\\hi.justfile
 
 # Edit user default hi.justfile
 [unix]
-edit-justfile:
+@edit-justfile:
   vim ~/.config/hi/hi.justfile
 "
 
