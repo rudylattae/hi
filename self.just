@@ -27,12 +27,7 @@ init:
   justfile=~/.config/hi/hi.justfile
   if [ ! -f $justfile ]; then
     mkdir -p "$(dirname $justfile)" && touch $justfile
-    echo "# DEFAULT JUSTFILE FOR CUSTOMIZATIONS
-  
-  # Say hello
-  @hello:
-    echo 'Hello World!'
-  " > $justfile
+    echo "{{default_justfile_content}}" > $justfile
     echo "Created justfile: $justfile"
   else
     echo "Default hi.justfile already exists: $justfile"
