@@ -4,8 +4,8 @@ set allow-duplicate-recipes := true
 # load .env files for customization
 set dotenv-load # load .env files
 
-# Import the user's justfile if defined.
-import? '~/.user.justfile'
+# Import the user's custom justfile if defined.
+import? '~/.config/hi/hi.justfile'
 
 # Manage "hi" configuration
 mod self
@@ -19,4 +19,3 @@ mod mod
 # List all available recipes
 @_default:
   just --justfile {{source_file()}} --list --unsorted
-

@@ -1,20 +1,39 @@
 @_default:
-  just --justfile {{source_file()}} --list
+  just --justfile {{source_file()}} --list --unsorted
 
-# Configure and get going
-@bootstrap:
-  echo '🚧 Not yet implemented yet' && exit 1
+# Create user's default hi.justfile
+[windows]
+@init:
+  code ~/.config/hi/hi.justfile
+
+# Create user's default hi.justfile
+[unix]
+init:
+  #!/usr/bin/env sh
+  justfile=~/.config/hi/hi.justfile
+  if [ ! -f $justfile ]; then
+    mkdir -p "$(dirname $justfile)" && touch $justfile
+    echo "# DEFAULT JUSTFILE FOR CUSTOMIZATIONS
+  
+  # Say hello
+  @hello:
+    echo 'Hello World!'
+  " > $justfile
+    echo "Created justfile: $justfile"
+  else
+    echo "Default hi.justfile already exists: $justfile"
+  fi
 
 # Output the directory where the hi configurations live
 @dir:
   echo {{justfile_directory()}}
 
-# Open dotfiles configuration directory in vscode
+# Open hi source directory in vscode
 [windows]
 @edit:
   code {{source_directory()}}
 
-# Open dotfiles configuration directory in vscode
+# Open hi source directory in vim
 [unix]
 @edit:
   vim {{source_directory()}}
