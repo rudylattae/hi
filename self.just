@@ -7,12 +7,12 @@ main_justfile_content := "# MAIN JUSTFILE FOR USER CUSTOMIZATIONS
 # Edit user main.justfile
 [windows]
 @edit-justfile:
-  code $HOME/.config/hi/main.justfile
+  code {{home_dir()}}/.config/hi/main.justfile
 
 # Edit user main.justfile
 [unix]
 @edit-justfile:
-  vim $HOME/.config/hi/main.justfile
+  vim {{home_dir()}}/.config/hi/main.justfile
 "
 
 main_justfile_path := "$HOME/.config/hi/main.justfile"
