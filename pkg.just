@@ -32,11 +32,8 @@ add name repo_name description:
 
   echo "Justfile: {{main_justfile_path}}"
 
-  if [ ! -d $repo_dir ]; then
-    just repo clone {{repo_name}}
-  else
-    echo "Repo already exists. Skipping."
-  fi
+  just repo clone {{repo_name}}
+  
   if [ ! -d $repo_dir ]; then
     echo "ERROR Unable to find local copy of repository."
     exit 0

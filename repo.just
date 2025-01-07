@@ -49,9 +49,9 @@ clone repo_name:
   $repo_url = "git@github.com:{{repo_name}}.git"
   $repo_dir = "{{hi_github_base_dir}}/{{repo_name}}"
   if (Test-Path -Path $repo_dir) {
-    echo "Local directory $repo_dir already exists. Will not clone. Try updating the repo instead."
+    echo "INFO: Repo {{repo_name}} already exists at $repo_dir."
   } else {
-    echo "Cloning $repo_url to $repo_dir"
+    echo "INFO: Cloning $repo_url to $repo_dir"
     git clone $repo_url $repo_dir
   }
 
@@ -61,11 +61,11 @@ clone repo_name:
   #!/usr/bin/env bash
   repo_url="git@github.com:{{repo_name}}.git"
   repo_dir="{{hi_github_base_dir}}/{{repo_name}}"
-  if [ ! -d $repo_dir ]; then
-    echo "Cloning $repo_url to $repo_dir"
-    git clone $repo_url $repo_dir
+  if [ -d $repo_dir ]; then
+    echo "INFO: Repo {{repo_name}} already exists at $repo_dir"
   else
-    echo "Repo {{repo_name}} already exists at $repo_dir"
+    echo "INFO: Cloning $repo_url to $repo_dir"
+    git clone $repo_url $repo_dir
   fi
 
 # Open <repo_name> directory for edit in vscode
