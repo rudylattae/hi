@@ -1,51 +1,52 @@
-default_justfile_content := "# DEFAULT JUSTFILE FOR CUSTOMIZATIONS
+main_justfile_content := "# MAIN JUSTFILE FOR USER CUSTOMIZATIONS
   
 # Greet anyone!
 @greet who='World':
   echo 'Hello {{who}}!'
 
-# Edit user default hi.justfile
+# Edit user main.justfile
 [windows]
 @edit-justfile:
-  code {{home_dir()}}\\.config\\hi\\hi.justfile
+  code $HOME/.config/hi/main.justfile
 
-# Edit user default hi.justfile
+# Edit user main.justfile
 [unix]
 @edit-justfile:
-  vim ~/.config/hi/hi.justfile
+  vim $HOME/.config/hi/main.justfile
 "
+
+main_justfile_path := "$HOME/.config/hi/main.justfile"
 
 @_default:
   just --justfile {{source_file()}} --list --unsorted
 
-# Create user default hi.justfile
+# Create user main.justfile
 [windows]
 init:
   #!pwsh.exe
-  $justfile="~/.config/hi/hi.justfile"
-  if (Test-Path -Path $justfile) {
-    echo "Default hi.justfile already exists: $justfile"
+  if (Test-Path -Path {{main_justfile_path}}) {
+    echo "main.justfile already exists: {{main_justfile_path}}"
   } else {
-    $justfileDir = Split-Path -Path $justfile
+    $justfileDir = Split-Path -Path {{main_justfile_path}}
     if (-Not (Test-Path -Path $justfileDir)) {
       New-Item -Path $justfileDir -ItemType Directory -Force
     }
-    New-Item -Path $justfile -ItemType File -Force
-    "{{default_justfile_content}}" | Out-File $justfile 
-    echo "Created $justfile"
+    New-Item -Path {{main_justfile_path}} -ItemType File -Force
+    "{{main_justfile_content}}" | Out-File {{main_justfile_path}}
+    echo "Created {{main_justfile_path}}"
   }
 
-# Create user default hi.justfile
+# Create user main.justfile
 [unix]
 init:
   #!/usr/bin/env sh
-  justfile=~/.config/hi/hi.justfile
-  if [ ! -f $justfile ]; then
-    mkdir -p "$(dirname $justfile)" && touch $justfile
-    echo "{{default_justfile_content}}" > $justfile
-    echo "Created justfile: $justfile"
+  # justfile=~/.config/hi/hi.justfile
+  if [ -f {{main_justfile_path}} ]; then
+    echo "main.justfile already exists: {{main_justfile_path}}"
   else
-    echo "Default hi.justfile already exists: $justfile"
+    mkdir -p "$(dirname {{main_justfile_path}})" && touch {{main_justfile_path}}
+    echo "{{main_justfile_content}}" > {{main_justfile_path}}
+    echo "Created justfile: {{main_justfile_path}}"
   fi
 
 # Output the directory where the hi source live
