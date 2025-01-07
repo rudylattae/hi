@@ -13,8 +13,8 @@ mod self
 # Manage git repositories in standard location
 mod repo 
 
-# Manage modules in your user.justfile 🚧 🧪
-mod mod
+# Manage packages in your main.justfile 🚧 🧪
+mod pkg
 
 # List all available recipes
 @_default:
