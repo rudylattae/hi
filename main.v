@@ -72,7 +72,7 @@ fn clone_repo(cmd cli.Command) ! {
 
 fn update_repo(cmd cli.Command) ! {
 	println('Updating repository...')
-	res := os.execute('git pull')
+	res := os.execute('git pull --rebase')
 	if res.exit_code == 0 {
 		println(res.output)
 	} else {
